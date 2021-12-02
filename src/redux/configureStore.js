@@ -2,9 +2,9 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { loadingBarReducer } from 'react-redux-loading-bar';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import authReducer from './reducers/auth';
-import roomsReducer from './reducers/rooms';
-import reservationsReducer from './reducers/reservations';
+import authReducer from './auth';
+import roomsReducer from './rooms';
+import reservationsReducer from './reservations';
 
 const reducer = combineReducers({
   loadingBar: loadingBarReducer,
