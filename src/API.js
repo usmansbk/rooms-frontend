@@ -32,6 +32,6 @@ export const login = async (user) => {
 };
 
 export const logout = async () => {
-  await http.post('/register');
+  await http.delete('/logout');
   localStorage.removeItem(TOKEN_KEY);
 };
