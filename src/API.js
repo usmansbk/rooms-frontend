@@ -35,3 +35,8 @@ export const logout = async () => {
   await http.delete('/logout');
   localStorage.removeItem(TOKEN_KEY);
 };
+
+export const getRooms = async () => {
+  const response = await http.get('/rooms');
+  return response.data;
+};
