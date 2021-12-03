@@ -38,12 +38,13 @@ export const signout = async (dispatch) => {
 
 const intialState = {
   currentUser: null,
+  token: null,
 };
 
 const reducer = (state = intialState, action) => {
   switch (action.type) {
     case LOAD_USER:
-      return { ...state, currentUser: action.payload };
+      return action.payload;
     case RESET:
       return intialState;
     default:

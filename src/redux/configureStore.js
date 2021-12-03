@@ -6,10 +6,12 @@ import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth';
 import roomsReducer from './rooms';
+import errorReducer from './error';
 import reservationsReducer from './reservations';
 
 const reducer = combineReducers({
   loadingBar: loadingBarReducer,
+  error: errorReducer,
   auth: authReducer,
   rooms: roomsReducer,
   reservations: reservationsReducer,
