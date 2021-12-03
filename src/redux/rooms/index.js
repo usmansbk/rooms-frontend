@@ -34,6 +34,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state, items: action.payload,
       };
+    case ADD_ROOM:
+      return { ...state, items: [...state.items, action.payload] };
     default:
       return state;
   }
