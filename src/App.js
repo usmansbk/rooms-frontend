@@ -2,14 +2,14 @@ import {
   BrowserRouter, Route, Routes, Outlet,
 } from 'react-router-dom';
 import Home from './components/Home';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
-import Rooms from './components/Rooms';
-import Reservations from './components/Reservations';
-import AddRoom from './components/AddRoom';
-import DeleteRoom from './components/DeleteRoom';
-import Room from './components/Room';
-import Reserve from './components/Reserve';
+import SignIn from './components/pages/SignIn';
+import SignUp from './components/pages/SignUp';
+import Rooms from './components/pages/Rooms';
+import Reservations from './components/pages/Reservations';
+import AddRoom from './components/pages/AddRoom';
+import DeleteRoom from './components/pages/DeleteRoom';
+import Room from './components/pages/Room';
+import Reserve from './components/pages/Reserve';
 import RequireAuth, { RedirectAuth } from './components/RequireAuth';
 
 const App = () => (
