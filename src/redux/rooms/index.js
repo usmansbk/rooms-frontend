@@ -2,11 +2,13 @@ import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import * as API from '../../API';
 
 const LOAD_ITEMS = 'rooms/items';
+const ADD_ROOM = 'rooms/add';
 
 const loadItems = (payload) => ({
   type: LOAD_ITEMS,
   payload,
 });
+
 
 export const fetchRooms = async (dispatch) => {
   dispatch(showLoading());
