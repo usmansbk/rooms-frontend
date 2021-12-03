@@ -2,8 +2,18 @@
 import { useForm } from 'react-hook-form';
 import { serialize } from 'object-to-formdata';
 import { useNavigate } from 'react-router-dom';
+import { createRoom } from '../../API';
 
 const AddRoom = () => {
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const onSubmit = async (data) => {
+    const object = { ...data, picture: data.picture[0] };
+    const formData = serialize(object, undefined, undefined, 'room');
+    const room = await createRoom(formData);
+    navigate(`/rooms/${room.id}`);
+  };
+
   return(
     <div>
       <h3>Add Room</h3>
