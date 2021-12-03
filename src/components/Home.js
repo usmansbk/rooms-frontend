@@ -3,6 +3,29 @@ import { useDispatch } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 import { signout } from '../redux/auth';
 
+const links = [
+  {
+    to: 'rooms',
+    name: 'Rooms',
+  },
+  {
+    to: 'reservations/new',
+    name: 'Reserve',
+  },
+  {
+    to: 'reservations',
+    name: 'My Reservations',
+  },
+  {
+    to: 'rooms/new',
+    name: 'Add Room',
+  },
+  {
+    to: 'rooms/delete',
+    name: 'Delete Room',
+  },
+];
+
 const Home = () => {
   const dispatch = useDispatch();
   const handleSignout = useCallback(() => dispatch(signout), []);
@@ -11,11 +34,7 @@ const Home = () => {
     <div>
       <nav>
         <h5>Room App</h5>
-        <Link to="rooms">Rooms</Link>
-        <Link to="reservations/new">Reserve</Link>
-        <Link to="reservations">My reservations</Link>
-        <Link to="rooms/new">Add Room</Link>
-        <Link to="rooms/delete">Delete Room</Link>
+        {links.map(({ to, name }) => <Link key={to} to={to}>{name}</Link>)}
         <button type="button" onClick={handleSignout}>Sign out</button>
       </nav>
       <Outlet />
