@@ -14,7 +14,6 @@ export const addRoom = (payload) => ({
   payload,
 });
 
-
 export const fetchRooms = async (dispatch) => {
   dispatch(showLoading());
 
