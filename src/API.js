@@ -30,3 +30,8 @@ export const getRooms = async () => {
   const response = await http.get('/rooms');
   return response.data;
 };
+
+export const createRoom = async (room) => {
+  const response = await http.post('/rooms', room);
+  return response.data;
+};
