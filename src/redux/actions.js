@@ -1,7 +1,7 @@
 export const ERROR = 'app/error';
 export const RESET = 'app/reset';
 
-export const setError = (error) => ({
+export const setError = (payload) => ({
   type: ERROR,
-  error,
+  payload,
 });
