@@ -7,17 +7,18 @@ import { createRoom } from '../../API';
 const AddRoom = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const onSubmit = async (data) => {
+
+  const onSubmit = handleSubmit(async (data) => {
     const object = { ...data, picture: data.picture[0] };
     const formData = serialize(object, undefined, undefined, 'room');
     const room = await createRoom(formData);
-    navigate(`/rooms/${room.id}`);
-  };
+    navigate(`/rooms/${room.id}`, { replace: true });
+  });
 
-  return(
+  return (
     <div>
       <h3>Add Room</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <input placeholder="Name" {...register('name', { required: true })} />
         <input placeholder="City" {...register('city', { required: true })} />
         <input type="number" placeholder="Price" {...register('price', { required: true })} />
@@ -29,6 +30,6 @@ const AddRoom = () => {
       </form>
     </div>
   );
-}
+};
 
 export default AddRoom;
