@@ -1,5 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import * as API from '../../API';
+import { RESET } from '../actions';
 
 const LOAD_USER = 'auth/current_user';
 
@@ -30,7 +31,7 @@ export const signout = async (dispatch) => {
   dispatch(showLoading());
 
   await API.logout();
-  dispatch(setCurrentUser(null));
+  dispatch({ type: RESET });
 
   dispatch(hideLoading());
 };
@@ -43,6 +44,8 @@ const reducer = (state = intialState, action) => {
   switch (action.type) {
     case LOAD_USER:
       return { ...state, currentUser: action.payload };
+    case RESET:
+      return intialState;
     default:
       return state;
   }
