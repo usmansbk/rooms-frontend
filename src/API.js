@@ -20,12 +20,14 @@ const saveToken = (headers) => {
 };
 
 export const register = async (user) => {
+  localStorage.removeItem(TOKEN_KEY);
   const response = await http.post('/register', { user });
   saveToken(response.headers);
   return response.data;
 };
 
 export const login = async (user) => {
+  localStorage.removeItem(TOKEN_KEY);
   const response = await http.post('/login', { user });
   saveToken(response.headers);
   return response.data;
