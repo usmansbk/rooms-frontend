@@ -9,6 +9,11 @@ const loadItems = (payload) => ({
   payload,
 });
 
+export const addRoom = (payload) => ({
+  type: ADD_ROOM,
+  payload,
+});
+
 
 export const fetchRooms = async (dispatch) => {
   dispatch(showLoading());
