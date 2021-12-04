@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../redux/auth/selector';
 
 const RequireAuth = ({ children }) => {
-  const { currentUser } = useSelector((state) => state.auth);
+  const currentUser = useSelector(selectCurrentUser);
   const location = useLocation();
 
   if (!currentUser) {
@@ -14,7 +15,7 @@ const RequireAuth = ({ children }) => {
 };
 
 export const RedirectAuth = ({ children }) => {
-  const { currentUser } = useSelector((state) => state.auth);
+  const currentUser = useSelector(selectCurrentUser);
   const location = useLocation();
 
   if (currentUser) {
