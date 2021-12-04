@@ -13,10 +13,10 @@ import DeleteRoom from './components/pages/DeleteRoom';
 import Room from './components/pages/Room';
 import Reserve from './components/pages/Reserve';
 import RequireAuth, { RedirectAuth } from './components/RequireAuth';
-import { hideToast } from './redux/toast';
+import { hideToast, selectToast } from './redux/toast';
 
 const App = () => {
-  const toast = useSelector((state) => state.toast.message);
+  const toast = useSelector(selectToast);
   const dispatch = useDispatch();
   const onDismiss = useCallback(() => dispatch(hideToast()), []);
 

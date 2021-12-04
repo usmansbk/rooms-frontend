@@ -3,6 +3,8 @@ import { RESET } from '../actions';
 const HIDE_TOAST = 'toast/hide';
 const SHOW_TOAST = 'toast/show';
 
+export const selectToast = (state) => state.toast.message;
+
 export const showToast = (message) => ({
   type: SHOW_TOAST,
   message,

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../redux/auth/selector';
+import { selectCurrentUser } from '../redux/auth';
 
 const RequireAuth = ({ children }) => {
   const currentUser = useSelector(selectCurrentUser);
