@@ -1,29 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { LoadingBar } from 'react-redux-loading-bar';
+import LoadingBar, { hideLoading } from 'react-redux-loading-bar';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from './redux/configureStore';
-import { http } from './API';
+import { showToast } from './redux/toast';
+import { api } from './API';
 import App from './App';
-import { setError } from './redux/actions';
 import './index.css';
 
-http.interceptors.request.use((config) => {
+api.interceptors.request.use((config) => {
   const { auth: { token } } = store.getState();
   const authConfig = { ...config };
   if (token) {
     authConfig.headers.Authorization = token;
   }
   return authConfig;
-}, (error) => {
-  store.dispatch(setError(error.message));
+});
+
+api.interceptors.response.use((res) => res, (error) => {
+  store.dispatch(showToast(error.message));
+  store.dispatch(hideLoading());
+  throw error;
 });
 
 ReactDOM.render(
   <Provider store={store}>
+    <LoadingBar />
     <PersistGate loading={null} persistor={persistor}>
-      <LoadingBar />
       <App />
     </PersistGate>
   </Provider>,
