@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-export const BASE_URL = 'https://polar-island-18380.herokuapp.com';
+import { BASE_URL } from './constants';
 
 export const api = axios.create({
   baseURL: BASE_URL,
