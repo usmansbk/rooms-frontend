@@ -2,6 +2,8 @@ import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import * as API from '../../API';
 import { RESET } from '../actions';
 
+export const selectCurrentUser = (state) => state.auth.currentUser;
+
 const LOAD_USER = 'auth/current_user';
 
 export const setCurrentUser = (payload) => ({

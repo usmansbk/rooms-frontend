@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   BrowserRouter, Route, Routes, Outlet,
 } from 'react-router-dom';
@@ -11,33 +13,46 @@ import DeleteRoom from './components/pages/DeleteRoom';
 import Room from './components/pages/Room';
 import Reserve from './components/pages/Reserve';
 import RequireAuth, { RedirectAuth } from './components/RequireAuth';
+import { hideToast, selectToast } from './redux/toast';
 
-const App = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route
-        path="/"
-        element={(
-          <RequireAuth>
-            <Home />
-          </RequireAuth>
+const App = () => {
+  const toast = useSelector(selectToast);
+  const dispatch = useDispatch();
+  const onDismiss = useCallback(() => dispatch(hideToast()), []);
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <RequireAuth>
+              <Home />
+            </RequireAuth>
         )}
-      >
-        <Route path="rooms" element={<Outlet />}>
-          <Route index element={<Rooms />} />
-          <Route path=":id" element={<Room />} />
-          <Route path="new" element={<AddRoom />} />
-          <Route path="delete" element={<DeleteRoom />} />
+        >
+          <Route path="rooms" element={<Outlet />}>
+            <Route index element={<Rooms />} />
+            <Route path=":id" element={<Room />} />
+            <Route path="new" element={<AddRoom />} />
+            <Route path="delete" element={<DeleteRoom />} />
+          </Route>
+          <Route path="reservations" element={<Outlet />}>
+            <Route index element={<Reservations />} />
+            <Route path="new" element={<Reserve />} />
+          </Route>
         </Route>
-        <Route path="reservations" element={<Outlet />}>
-          <Route index element={<Reservations />} />
-          <Route path="new" element={<Reserve />} />
-        </Route>
-      </Route>
-      <Route path="/signin" element={<RedirectAuth><SignIn /></RedirectAuth>} />
-      <Route path="/signup" element={<RedirectAuth><SignUp /></RedirectAuth>} />
-    </Routes>
-  </BrowserRouter>
-);
+        <Route path="/signin" element={<RedirectAuth><SignIn /></RedirectAuth>} />
+        <Route path="/signup" element={<RedirectAuth><SignUp /></RedirectAuth>} />
+      </Routes>
+      {toast && (
+      <div>
+        <p>{toast}</p>
+        <button type="button" onClick={onDismiss}>Dismiss</button>
+      </div>
+      )}
+    </BrowserRouter>
+  );
+};
 
 export default App;

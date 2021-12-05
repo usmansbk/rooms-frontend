@@ -6,12 +6,12 @@ import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth';
 import roomsReducer from './rooms';
-import errorReducer from './error';
+import toastReducer from './toast';
 import reservationsReducer from './reservations';
 
 const reducer = combineReducers({
   loadingBar: loadingBarReducer,
-  error: errorReducer,
+  toast: toastReducer,
   auth: authReducer,
   rooms: roomsReducer,
   reservations: reservationsReducer,
@@ -20,6 +20,7 @@ const reducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['loadingBar', 'toast'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

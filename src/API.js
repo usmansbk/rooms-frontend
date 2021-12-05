@@ -1,13 +1,12 @@
 import axios from 'axios';
+import { BASE_URL } from './constants';
 
-const BASE_URL = 'https://polar-island-18380.herokuapp.com/';
-
-export const http = axios.create({
+export const api = axios.create({
   baseURL: BASE_URL,
 });
 
 export const register = async (user) => {
-  const response = await http.post('/register', { user });
+  const response = await api.post('/register', { user });
   const token = response.headers.authorization;
   const currentUser = response.data;
 
@@ -15,7 +14,7 @@ export const register = async (user) => {
 };
 
 export const login = async (user) => {
-  const response = await http.post('/login', { user });
+  const response = await api.post('/login', { user });
   const token = response.headers.authorization;
   const currentUser = response.data;
 
@@ -23,15 +22,40 @@ export const login = async (user) => {
 };
 
 export const logout = async () => {
-  await http.delete('/logout');
+  await api.delete('/logout');
 };
 
 export const getRooms = async () => {
-  const response = await http.get('/rooms');
+  const response = await api.get('/rooms');
   return response.data;
 };
 
 export const createRoom = async (room) => {
-  const response = await http.post('/rooms', room);
+  const response = await api.post('/rooms', room);
   return response.data;
+};
+
+export const getRoom = async (id) => {
+  const response = await api.get(`/rooms/${id}`);
+  return response.data;
+};
+
+export const deleteRoom = async (id) => {
+  const response = await api.delete(`/rooms/${id}`);
+  return response.status === 204;
+};
+
+export const getReservations = async () => {
+  const response = await api.get('/reservations');
+  return response.data;
+};
+
+export const createReservation = async (reservation) => {
+  const response = await api.post('/reservations', { reservation });
+  return response.data;
+};
+
+export const deleteReservation = async (id) => {
+  const response = await api.delete(`/reservations/${id}`);
+  return response.status === 204;
 };
