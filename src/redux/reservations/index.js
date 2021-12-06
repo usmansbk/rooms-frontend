@@ -23,6 +23,17 @@ const removeReservation = (id) => ({
   id,
 });
 
+export const createReservation = (payload) => async (dispatch) => {
+  dispatch(showLoading());
+
+  const reservation = await API.createReservation(payload);
+  const { byId, id, room } = normailzeReservation(reservation);
+  dispatch(addReservation({ byId, id }));
+  dispatch(addRoom(room));
+
+  dispatch(hideLoading());
+};
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     default:
