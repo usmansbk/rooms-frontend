@@ -45,6 +45,15 @@ export const fetchReservations = async (dispatch) => {
   dispatch(hideLoading());
 };
 
+export const deleteReservation = (id) => async (dispatch) => {
+  dispatch(showLoading());
+
+  await API.deleteReservation(id);
+  dispatch(removeReservation(id));
+
+  dispatch(hideLoading());
+};
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     default:
