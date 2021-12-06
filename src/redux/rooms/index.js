@@ -5,6 +5,7 @@ import { normailzeRooms } from '../schema';
 
 const LOAD_ROOMS = 'rooms/items';
 const ADD_ROOM = 'rooms/add';
+const REMOVE_ROOM = 'rooms/remove';
 
 const loadItems = (payload) => ({
   type: LOAD_ITEMS,
