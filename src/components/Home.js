@@ -91,7 +91,7 @@ const Home = () => {
       <div className="flex-grow-1 content">
         <header className="header">
           <button className="menu-button icon-button background-transparent" type="button" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars} size="2x" />
+            <FontAwesomeIcon className="text-black" icon={faBars} size="2x" />
           </button>
         </header>
         <Outlet />
