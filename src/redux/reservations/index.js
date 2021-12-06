@@ -34,6 +34,17 @@ export const createReservation = (payload) => async (dispatch) => {
   dispatch(hideLoading());
 };
 
+export const fetchReservations = async (dispatch) => {
+  dispatch(showLoading());
+
+  const reservations = await API.getReservations();
+  if (reservations?.length) {
+    dispatch(loadReservations(normailzeReservations(reservations)));
+  }
+
+  dispatch(hideLoading());
+};
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     default:
