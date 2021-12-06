@@ -53,6 +53,15 @@ export const createRoom = (payload, callback) => async (dispatch) => {
   callback(room);
 };
 
+export const deleteRoom = (id) => async (dispatch) => {
+  dispatch(showLoading());
+
+  await API.deleteRoom(id);
+  dispatch(removeRoom(id));
+
+  dispatch(hideLoading());
+};
+
 const initialState = {
   items: [],
 };
