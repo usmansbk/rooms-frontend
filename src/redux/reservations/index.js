@@ -5,6 +5,7 @@ import { normailzeReservation, normailzeReservations } from '../schema';
 import { addRoom } from '../rooms';
 
 const LOAD_RESERVATIONS = 'reservations/load';
+const ADD_RESERVATION = 'reservations/add';
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
