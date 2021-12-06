@@ -40,6 +40,11 @@ input[type="submit"] {
   user-select: none;
 }
 
+div {
+  display: flex;
+  flex-direction: column;
+}
+
 html,
 body {
   height: 100%;
@@ -50,5 +55,4 @@ body {
   min-height: 100vh;
   display: flex;
   flex-grow: 1;
-  flex-direction: column;
 }
