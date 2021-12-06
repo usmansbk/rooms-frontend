@@ -45,6 +45,7 @@ div,
 nav,
 header,
 section,
+form,
 footer {
   display: flex;
   flex-direction: column;
@@ -59,4 +60,5 @@ body {
 #root {
   min-height: 100vh;
   flex-grow: 1;
+  color: var(--text-color);
 }
