@@ -32,6 +32,17 @@ export const fetchRooms = async (dispatch) => {
   dispatch(hideLoading());
 };
 
+export const fetchRoom = (id) => async (dispatch) => {
+  dispatch(showLoading());
+
+  const room = await API.getRoom(id);
+  if (room) {
+    dispatch(addRoom(room));
+  }
+
+  dispatch(hideLoading());
+};
+
 const initialState = {
   items: [],
 };
