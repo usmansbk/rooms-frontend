@@ -43,6 +43,16 @@ export const fetchRoom = (id) => async (dispatch) => {
   dispatch(hideLoading());
 };
 
+export const createRoom = (payload, callback) => async (dispatch) => {
+  dispatch(showLoading());
+
+  const room = await API.createRoom(payload);
+  dispatch(addRoom(room));
+
+  dispatch(hideLoading());
+  callback(room);
+};
+
 const initialState = {
   items: [],
 };
