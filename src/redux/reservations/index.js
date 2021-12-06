@@ -59,8 +59,27 @@ const initialState = {
   allIds: [],
 }
 
-const reducer = (state = {}, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOAD_RESERVATIONS:
+      return action.payload;
+    case ADD_RESERVATION: {
+      const { byId, id } = action.payload;
+      return {
+        byId: { ...state.byId, ...byId },
+        allIds: [...state.allIds, id],
+      };
+    }
+    case REMOVE_RESERVATION: {
+      const byId = { ...state.byId };
+      delete byId[action.id];
+      return {
+        byId,
+        allIds: state.allIds.filter((id) => String(id) !== String(action.id)),
+      };
+    }
+    case RESET:
+      return initialState;
     default:
       return state;
   }
