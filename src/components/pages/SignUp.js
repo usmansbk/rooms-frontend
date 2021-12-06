@@ -11,15 +11,15 @@ const SignUp = () => {
   const onSubmit = (data) => dispatch(signup(data));
 
   return (
-    <div>
-      <h3>Register to book a room</h3>
-      <form onSubmit={handleSubmit(onSubmit)} method="post">
-        <input placeholder="Enter your name" {...register('name', { required: true })} />
-        <input type="email" placeholder="Enter your email" {...register('email', { required: true })} />
-        <input type="password" placeholder="Enter your password" {...register('password', { required: true })} />
-        <input type="submit" value="Create account" />
+    <div className="container align-items-center justify-content-center">
+      <h3 className="h3 pb-4">Register</h3>
+      <form className="gap-2" onSubmit={handleSubmit(onSubmit)} method="post">
+        <input className="input" placeholder="Enter your name" {...register('name', { required: true })} />
+        <input className="input" type="email" placeholder="Enter your email" {...register('email', { required: true })} />
+        <input className="input" type="password" placeholder="Enter your password" {...register('password', { required: true })} />
+        <input className="button" type="submit" value="Create account" />
       </form>
-      <Link to="/signin">Already have an account?</Link>
+      <Link className="pt-4" to="/signin">Already have an account?</Link>
     </div>
   );
 };
