@@ -13,6 +13,11 @@ const loadReservations = (payload) => ({
   payload,
 });
 
+const addReservation = (payload) => ({
+  type: ADD_RESERVATION,
+  payload,
+});
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     default:
