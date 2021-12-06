@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
@@ -59,9 +60,9 @@ const NavFooter = () => (
   </footer>
 );
 
-const NavLinks = () => (
+const NavLinks = ({ onClick }) => (
   <div className="nav-links flex-grow-1">
-    {links.map(({ to, name }) => <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'link')} key={to} to={to}>{name}</NavLink>)}
+    {links.map(({ to, name }) => <NavLink onClick={onClick} className={({ isActive }) => (isActive ? 'active-link' : 'link')} key={to} to={to}>{name}</NavLink>)}
   </div>
 
 );
@@ -83,7 +84,7 @@ const Home = () => {
     <div className="container flex-direction-row">
       <nav className={navClass}>
         <h5 className="brand h3">Room App</h5>
-        <NavLinks />
+        <NavLinks onClick={toggleMenu} />
         <button className="link" type="button" onClick={handleSignout}>Sign out</button>
         <NavFooter />
       </nav>
