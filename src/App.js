@@ -14,6 +14,7 @@ import Room from './components/pages/Room';
 import Reserve from './components/pages/Reserve';
 import RequireAuth, { RedirectAuth } from './components/RequireAuth';
 import { hideToast, selectToast } from './redux/toast';
+import './styles';
 
 const App = () => {
   const toast = useSelector(selectToast);

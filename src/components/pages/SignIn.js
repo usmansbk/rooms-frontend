@@ -11,7 +11,7 @@ const SignIn = () => {
   const onSubmit = (data) => dispatch(signin(data));
 
   return (
-    <div>
+    <div className="container align-items-center justify-content-center">
       <h3>Welcome back!</h3>
       <form onSubmit={handleSubmit(onSubmit)} method="post">
         <input type="email" placeholder="Enter your email" {...register('email', { required: true })} />
