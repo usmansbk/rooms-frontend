@@ -78,6 +78,14 @@ const reducer = (state = initialState, action) => {
         allIds: state.allIds.filter((id) => id !== room.id).concat([room.id]),
       };
     }
+    case REMOVE_ROOM: {
+      const byId = { ...state.byId };
+      delete byId[action.id];
+      return {
+        byId,
+        allIds: state.allIds.filter((id) => String(id) !== String(action.id)),
+      };
+    }
     default:
       return state;
   }
