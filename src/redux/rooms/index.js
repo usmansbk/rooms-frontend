@@ -20,7 +20,7 @@ export const addRoom = (payload) => ({
 export const removeRoom = (id) => ({
   type: REMOVE_ROOM,
   id,
-})
+});
 
 export const fetchRooms = async (dispatch) => {
   dispatch(showLoading());

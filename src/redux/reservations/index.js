@@ -57,7 +57,7 @@ export const deleteReservation = (id) => async (dispatch) => {
 const initialState = {
   byId: {},
   allIds: [],
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
