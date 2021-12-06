@@ -6,7 +6,7 @@ import { signout } from '../redux/auth';
 
 const links = [
   {
-    to: 'rooms',
+    to: '/',
     name: 'Rooms',
   },
   {

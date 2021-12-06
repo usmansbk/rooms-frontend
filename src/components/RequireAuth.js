@@ -19,7 +19,7 @@ export const RedirectAuth = ({ children }) => {
   const location = useLocation();
 
   if (currentUser) {
-    const from = location.state?.from?.pathname || '/rooms';
+    const from = location.state?.from?.pathname || '/';
     return <Navigate to={from} />;
   }
 

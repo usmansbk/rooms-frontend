@@ -31,8 +31,8 @@ const App = () => {
             </RequireAuth>
         )}
         >
+          <Route index element={<Rooms />} />
           <Route path="rooms" element={<Outlet />}>
-            <Route index element={<Rooms />} />
             <Route path=":id" element={<Room />} />
             <Route path="new" element={<AddRoom />} />
             <Route path="delete" element={<DeleteRoom />} />
