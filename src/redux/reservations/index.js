@@ -18,6 +18,11 @@ const addReservation = (payload) => ({
   payload,
 });
 
+const removeReservation = (id) => ({
+  type: REMOVE_RESERVATION,
+  id,
+});
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     default:
