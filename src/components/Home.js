@@ -42,9 +42,9 @@ const Home = () => {
         <div className="nav-links flex-grow-1">
           {links.map(({ to, name }) => <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'link')} key={to} to={to}>{name}</NavLink>)}
         </div>
-        <footer>
-          <button className="link" type="button" onClick={handleSignout}>Sign out</button>
-          <span>&copy; 2021</span>
+        <button className="link" type="button" onClick={handleSignout}>Sign out</button>
+        <footer className="nav-footer align-items-center">
+          <span className="footer-text">&copy; 2021 Microverse</span>
         </footer>
       </nav>
       <div className="flex-grow-1">

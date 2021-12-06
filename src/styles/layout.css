@@ -30,3 +30,7 @@
   background-color: var(--primary-color);
   color: var(--on-primary);
 }
+
+.nav-footer {
+  padding: 24px;
+}
