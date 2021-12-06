@@ -2,17 +2,19 @@
 import { useForm } from 'react-hook-form';
 import { serialize } from 'object-to-formdata';
 import { useNavigate } from 'react-router-dom';
-import { createRoom } from '../../API';
+import { useDispatch } from 'react-redux';
+import { createRoom } from '../../redux/rooms';
+import { CITIES } from '../../constants';
 
 const AddRoom = () => {
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = handleSubmit((data) => {
     const object = { ...data, picture: data.picture[0] };
     const formData = serialize(object, undefined, undefined, 'room');
-    const room = await createRoom(formData);
-    navigate(`/rooms/${room.id}`, { replace: true });
+    dispatch(createRoom(formData, (room) => navigate(`/rooms/${room.id}`, { replace: true })));
   });
 
   return (
@@ -20,7 +22,9 @@ const AddRoom = () => {
       <h3>Add Room</h3>
       <form onSubmit={onSubmit}>
         <input placeholder="Name" {...register('name', { required: true })} />
-        <input placeholder="City" {...register('city', { required: true })} />
+        <select {...register('city', { required: true })}>
+          {CITIES.map((value) => <option key={value} value={value}>{value}</option>)}
+        </select>
         <input type="number" placeholder="Price" {...register('price', { required: true })} />
         <input type="number" placeholder="Size" {...register('size', { required: true })} />
         <input placeholder="Bed Type" {...register('bed_type', { required: true })} />
