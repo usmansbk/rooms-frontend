@@ -8,6 +8,11 @@ const LOAD_RESERVATIONS = 'reservations/load';
 const ADD_RESERVATION = 'reservations/add';
 const REMOVE_RESERVATION = 'reservations/remove';
 
+const loadReservations = (payload) => ({
+  type: LOAD_RESERVATIONS,
+  payload,
+});
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     default:
