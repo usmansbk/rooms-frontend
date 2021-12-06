@@ -40,7 +40,11 @@ input[type="submit"] {
   user-select: none;
 }
 
-div {
+div,
+nav,
+header,
+section,
+footer {
   display: flex;
   flex-direction: column;
 }
