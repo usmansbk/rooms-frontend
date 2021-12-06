@@ -54,9 +54,17 @@
   left: 0;
 }
 
+.menu-button {
+  position: absolute;
+}
+
 @media screen and (min-width: 992px) {
   .nav {
     left: 0;
+  }
+
+  .menu-button {
+    display: none;
   }
 
   .content {

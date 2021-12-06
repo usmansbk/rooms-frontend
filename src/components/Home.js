@@ -89,7 +89,7 @@ const Home = () => {
         <NavFooter />
       </nav>
       <div className="flex-grow-1 content">
-        <button className="icon-button background-transparent" type="button" onClick={toggleMenu}>
+        <button className="menu-button icon-button background-transparent" type="button" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} size="2x" />
         </button>
         <Outlet />
