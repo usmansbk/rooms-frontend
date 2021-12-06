@@ -1,7 +1,9 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import * as API from '../../API';
+import { RESET } from '../actions';
+import { normailzeRooms } from '../schema';
 
-const LOAD_ITEMS = 'rooms/items';
+const LOAD_ROOMS = 'rooms/items';
 const ADD_ROOM = 'rooms/add';
 
 const loadItems = (payload) => ({
