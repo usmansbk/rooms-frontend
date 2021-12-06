@@ -7,9 +7,9 @@ const LOAD_ROOMS = 'rooms/items';
 const ADD_ROOM = 'rooms/add';
 const REMOVE_ROOM = 'rooms/remove';
 
-const loadItems = (payload) => ({
-  type: LOAD_ITEMS,
-  payload,
+export const addRoom = (room) => ({
+  type: ADD_ROOM,
+  room,
 });
 
 export const addRoom = (payload) => ({
