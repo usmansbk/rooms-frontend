@@ -19,7 +19,8 @@ api.interceptors.request.use((config) => {
 });
 
 api.interceptors.response.use((res) => res, (error) => {
-  store.dispatch(showToast(error.message));
+  const { response: { data } } = error;
+  store.dispatch(showToast(data.error));
   store.dispatch(hideLoading());
   throw error;
 });

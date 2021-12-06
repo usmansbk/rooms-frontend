@@ -17,10 +17,13 @@
   --gray: #e2e3e5;
   --gray-2: #efefef;
   --brand-color: #474747;
+  --black-color: #252525;
+  --white-color: #fff;
 }
 
 .brand {
   font-family: 'Lobster', cursive;
+  color: var(--brand-color);
 }
 
 ul {
@@ -45,6 +48,7 @@ div,
 nav,
 header,
 section,
+form,
 footer {
   display: flex;
   flex-direction: column;
@@ -59,4 +63,5 @@ body {
 #root {
   min-height: 100vh;
   flex-grow: 1;
+  color: var(--text-color);
 }
