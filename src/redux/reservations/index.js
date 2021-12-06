@@ -54,6 +54,11 @@ export const deleteReservation = (id) => async (dispatch) => {
   dispatch(hideLoading());
 };
 
+const initialState = {
+  byId: {},
+  allIds: [],
+}
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     default:
