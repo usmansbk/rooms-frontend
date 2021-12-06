@@ -18,3 +18,7 @@
   height: 48px;
   border-radius: 50%;
 }
+
+.toast {
+  z-index: 10000;
+}

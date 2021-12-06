@@ -12,7 +12,7 @@ const Toast = () => {
   }
 
   return (
-    <div className="p-2 flex-direction-row background-black text-white align-items-center">
+    <div className="p-2 toast flex-direction-row background-black text-white align-items-center">
       <p className="flex flex-grow-1">{toast}</p>
       <button className="button" type="button" onClick={onDismiss}>Dismiss</button>
     </div>
