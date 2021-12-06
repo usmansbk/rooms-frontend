@@ -7,6 +7,13 @@ import { selectAllRooms, selectRoomById } from '../../redux/rooms/selectors';
 const Item = ({ onDelete, id }) => {
   const { name } = useSelector(selectRoomById(id));
 
+  return (
+    <div>
+      <h5>{name}</h5>
+      <button type="button" onClick={() => onDelete(id)}>Delete</button>
+    </div>
+  );
+};
 
 const DeleteRoom = () => {
   const roomIds = useSelector(selectAllRooms);
