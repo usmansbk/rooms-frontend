@@ -1,4 +1,49 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #97bf0f;
+  --on-primary: #fafcfb;
+  --text-color: #212121;
+  --light-gray-1: #d3d3d3;
+  --light-gray-2: #c1c1c1;
+  --gray: #e2e3e5;
+  --gray-2: #efefef;
+  --brand-color: #474747;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
 }
