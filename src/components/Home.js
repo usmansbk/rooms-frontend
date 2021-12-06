@@ -1,6 +1,8 @@
 import { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { fetchRooms } from '../redux/rooms';
 import { signout } from '../redux/auth';
 
@@ -27,6 +29,24 @@ const links = [
   },
 ];
 
+const externalLinks = [
+  {
+    id: 'github',
+    icon: faGithub,
+    link: 'https://github.com/usmansbk',
+  },
+  {
+    id: 'facebook',
+    icon: faFacebookF,
+    link: 'https://facebook.com',
+  },
+  {
+    id: 'twitter',
+    icon: faTwitter,
+    link: 'https://twitter.com',
+  },
+];
+
 const Home = () => {
   const dispatch = useDispatch();
   const handleSignout = useCallback(() => dispatch(signout), []);
@@ -44,6 +64,10 @@ const Home = () => {
         </div>
         <button className="link" type="button" onClick={handleSignout}>Sign out</button>
         <footer className="nav-footer align-items-center">
+          <ul className="flex pb-4 gap-2">
+            {externalLinks.map(({ id, icon, link }) => (
+              <a aria-label="icon" key={id} href={link}><FontAwesomeIcon icon={icon} /></a>))}
+          </ul>
           <span className="footer-text">&copy; 2021 Microverse</span>
         </footer>
       </nav>
