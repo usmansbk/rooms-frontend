@@ -63,17 +63,21 @@ export const deleteRoom = (id) => async (dispatch) => {
 };
 
 const initialState = {
-  items: [],
+  byId: {},
+  allIds: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_ITEMS:
+    case LOAD_ROOMS:
+      return action.payload;
+    case ADD_ROOM: {
+      const { room } = action;
       return {
-        ...state, items: action.payload,
+        byId: { ...state.byId, [room.id]: room },
+        allIds: state.allIds.filter((id) => id !== room.id).concat([room.id]),
       };
-    case ADD_ROOM:
-      return { ...state, items: [...state.items, action.payload] };
+    }
     default:
       return state;
   }
