@@ -48,6 +48,8 @@
 
 .content {
   position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .open-nav {
@@ -70,5 +72,6 @@
 
   .content {
     margin-left: var(--nav-width);
+    width: calc(100% - var(--nav-width));
   }
 }
