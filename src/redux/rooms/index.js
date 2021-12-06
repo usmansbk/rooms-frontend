@@ -86,6 +86,8 @@ const reducer = (state = initialState, action) => {
         allIds: state.allIds.filter((id) => String(id) !== String(action.id)),
       };
     }
+    case RESET:
+      return initialState;
     default:
       return state;
   }
