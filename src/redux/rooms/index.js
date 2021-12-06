@@ -7,9 +7,9 @@ const LOAD_ROOMS = 'rooms/items';
 const ADD_ROOM = 'rooms/add';
 const REMOVE_ROOM = 'rooms/remove';
 
-export const addRoom = (room) => ({
-  type: ADD_ROOM,
-  room,
+const loadRooms = (payload) => ({
+  type: LOAD_ROOMS,
+  payload,
 });
 
 export const addRoom = (payload) => ({
@@ -24,9 +24,10 @@ export const removeRoom = (id) => ({
 
 export const fetchRooms = async (dispatch) => {
   dispatch(showLoading());
-
-  const items = await API.getRooms();
-  dispatch(loadItems(items));
+  const rooms = await API.getRooms();
+  if (rooms?.length) {
+    dispatch(loadRooms(normailzeRooms(rooms)));
+  }
 
   dispatch(hideLoading());
 };
