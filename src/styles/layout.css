@@ -1,12 +1,22 @@
 .container {
   flex-grow: 1;
+
+  --nav-width: 250px;
 }
 
 .nav {
+  width: var(--nav-width);
   padding-left: 16px;
+  position: absolute;
+  height: 100%;
+  background-color: var(--white-color);
+  left: -250px;
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: var(--light-gray-1);
+  z-index: 1;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
 .brand {
@@ -24,6 +34,7 @@
   padding-bottom: 12px;
   font-weight: 900;
   text-transform: uppercase;
+  transition: 0.3s;
 }
 
 .active-link {
@@ -33,4 +44,22 @@
 
 .nav-footer {
   padding: 24px;
+}
+
+.content {
+  position: absolute;
+}
+
+.open-nav {
+  left: 0;
+}
+
+@media screen and (min-width: 992px) {
+  .nav {
+    left: 0;
+  }
+
+  .content {
+    margin-left: var(--nav-width);
+  }
 }

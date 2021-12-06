@@ -6,6 +6,10 @@
   background-color: var(--black-color);
 }
 
+.background-transparent {
+  background: transparent;
+}
+
 .text-white {
   color: var(--white-color);
 }
