@@ -6,6 +6,7 @@ import { addRoom } from '../rooms';
 
 const LOAD_RESERVATIONS = 'reservations/load';
 const ADD_RESERVATION = 'reservations/add';
+const REMOVE_RESERVATION = 'reservations/remove';
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
