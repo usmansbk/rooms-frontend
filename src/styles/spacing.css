@@ -6,6 +6,10 @@
   padding-top: 16px;
 }
 
+.m-4 {
+  margin: 16px;
+}
+
 .gap-2 {
   gap: 8px;
 }

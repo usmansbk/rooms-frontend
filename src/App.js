@@ -38,8 +38,8 @@ const App = () => {
             <Route path="new" element={<AddRoom />} />
             <Route path="delete" element={<DeleteRoom />} />
           </Route>
+          <Route path="my-reservations" element={<Reservations />} />
           <Route path="reservations" element={<Outlet />}>
-            <Route index element={<Reservations />} />
             <Route path="new" element={<Reserve />} />
           </Route>
         </Route>

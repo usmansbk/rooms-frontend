@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { fetchRooms } from '../redux/rooms';
 import { signout } from '../redux/auth';
 
@@ -14,7 +14,7 @@ const links = [
     name: 'Reserve',
   },
   {
-    to: 'reservations',
+    to: 'my-reservations',
     name: 'My Reservations',
   },
   {
@@ -36,13 +36,18 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <nav>
-          <h5>Room App</h5>
-          {links.map(({ to, name }) => <Link key={to} to={to}>{name}</Link>)}
-          <button type="button" onClick={handleSignout}>Sign out</button>
-        </nav>
+    <div className="container flex-direction-row">
+      <nav className="nav">
+        <h5 className="brand h3">Room App</h5>
+        <div className="nav-links flex-grow-1">
+          {links.map(({ to, name }) => <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'link')} key={to} to={to}>{name}</NavLink>)}
+        </div>
+        <footer>
+          <button className="link" type="button" onClick={handleSignout}>Sign out</button>
+          <span>&copy; 2021</span>
+        </footer>
+      </nav>
+      <div className="flex-grow-1">
         <Outlet />
       </div>
     </div>

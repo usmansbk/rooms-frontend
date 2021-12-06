@@ -21,6 +21,7 @@
 
 .brand {
   font-family: 'Lobster', cursive;
+  color: var(--brand-color);
 }
 
 ul {

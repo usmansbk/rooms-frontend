@@ -1,3 +1,32 @@
 .container {
   flex-grow: 1;
 }
+
+.nav {
+  padding-left: 16px;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: var(--light-gray-1);
+}
+
+.brand {
+  margin: 16px;
+}
+
+.nav-links {
+  margin-top: 40px;
+}
+
+.link,
+.active-link {
+  padding: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.active-link {
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+}
