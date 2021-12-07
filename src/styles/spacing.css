@@ -14,10 +14,19 @@
   padding: 16px;
 }
 
+.my-4 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 .m-4 {
   margin: 16px;
 }
 
 .gap-2 {
   gap: 8px;
+}
+
+.gap-4 {
+  gap: 16px;
 }
