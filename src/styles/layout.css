@@ -50,18 +50,19 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .open-nav {
   left: 0;
 }
 
-.header {
-  padding: 16px;
-}
-
 @media screen and (min-width: 992px) {
+  .header {
+    display: none;
+  }
+
   .nav {
     left: 0;
   }
