@@ -42,6 +42,10 @@ th {
   font-weight: 500;
 }
 
+th {
+  font-weight: bold;
+}
+
 tr:nth-child(odd) {
   background-color: var(--gray);
 }

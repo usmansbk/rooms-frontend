@@ -6,17 +6,19 @@ import { selectMyReservations, selectReservationById } from '../../redux/reserva
 import { selectRoomById } from '../../redux/rooms/selectors';
 
 const Item = ({ id, onDelete }) => {
-  const { check_in: checkIn, nights, room } = useSelector(selectReservationById(id));
-  const { city } = useSelector(selectRoomById(room));
+  const { check_in: checkIn, room } = useSelector(selectReservationById(id));
+  const { city, name } = useSelector(selectRoomById(room));
   return (
-    <div>
-      <div>{checkIn}</div>
-      <span>{nights}</span>
-      <p>{city}</p>
-      <button type="button" onClick={() => onDelete(id)}>
-        Cancel
-      </button>
-    </div>
+    <tr>
+      <td>{name}</td>
+      <td>{checkIn}</td>
+      <td>{city}</td>
+      <td>
+        <button className="link" type="button" onClick={() => onDelete(id)}>
+          Cancel
+        </button>
+      </td>
+    </tr>
   );
 };
 
@@ -31,11 +33,17 @@ const Reservations = () => {
   const handleDelete = useCallback((id) => dispatch(deleteReservation(id)), []);
 
   return (
-    <div>
-      <h3>My Reservations</h3>
-      <ul>
+    <div className="container p-4">
+      <h3 className="h3 mb-4">MY RESERVATIONS</h3>
+      <table>
+        <tr>
+          <th>ROOM</th>
+          <th>CHECK IN DATE</th>
+          <th>CITY</th>
+          <th>{' '}</th>
+        </tr>
         {reservationIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
-      </ul>
+      </table>
     </div>
   );
 };
