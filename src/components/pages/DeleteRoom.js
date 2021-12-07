@@ -8,10 +8,12 @@ const Item = ({ onDelete, id }) => {
   const { name } = useSelector(selectRoomById(id));
 
   return (
-    <div>
-      <h5>{name}</h5>
-      <button type="button" onClick={() => onDelete(id)}>Delete</button>
-    </div>
+    <tr>
+      <td>{name}</td>
+      <td>
+        <button className="link" type="button" onClick={() => onDelete(id)}>Delete</button>
+      </td>
+    </tr>
   );
 };
 
@@ -22,10 +24,12 @@ const DeleteRoom = () => {
   const handleDelete = useCallback((id) => dispatch(deleteRoom(id)), []);
 
   return (
-    <div>
-      <h3>Delete Room</h3>
+    <div className="container p-4">
+      <h3 className="h3 mb-4">DELETE ROOM</h3>
       <div>
-        {roomIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+        <table>
+          {roomIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+        </table>
       </div>
     </div>
   );
