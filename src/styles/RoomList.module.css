@@ -1,10 +1,30 @@
+.image {
+  height: 160px;
+}
+
 .card {
   width: 240px;
+  text-align: center;
 }
 
 .container {
-  margin: auto;
   gap: 64px;
+  padding: 0 48px;
+  flex-direction: row;
   position: relative;
-  overflow-x: scroll;
+}
+
+.icon {
+  border: solid 1px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider {
+  border: dotted 2px var(--gray);
+  width: 50%;
+  margin: 16px auto;
 }

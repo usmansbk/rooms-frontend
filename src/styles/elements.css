@@ -20,6 +20,24 @@
   border-radius: 50%;
 }
 
+.half-right-button {
+  min-width: 60px;
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+  padding: 16px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.half-left-button {
+  min-width: 60px;
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+  padding: 16px;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
 .toast {
   z-index: 10000;
 }
