@@ -27,7 +27,7 @@ api.interceptors.response.use((res) => res, (error) => {
 
 ReactDOM.render(
   <Provider store={store}>
-    <LoadingBar />
+    <LoadingBar className="loading-bar" />
     <PersistGate loading={null} persistor={persistor}>
       <App />
     </PersistGate>
