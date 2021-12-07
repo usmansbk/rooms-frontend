@@ -31,6 +31,10 @@
   margin-bottom: 16px;
 }
 
+.mb-10 {
+  margin-bottom: 40px;
+}
+
 .gap-2 {
   gap: 8px;
 }
