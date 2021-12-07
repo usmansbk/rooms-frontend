@@ -1,0 +1,25 @@
+.rooms-wrapper {
+  height: calc(100vh - 80px);
+  justify-content: center;
+  text-align: center;
+}
+
+.rooms-container {
+  align-items: center;
+  overflow-x: scroll;
+  flex-direction: row;
+}
+
+.room-container {
+  margin: 0 auto;
+  align-items: center;
+  word-wrap: break-word;
+}
+
+.room-image {
+  border-radius: 50%;
+}
+
+.room-facility {
+  width: 300px;
+}
