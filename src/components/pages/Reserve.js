@@ -30,7 +30,7 @@ const Reserve = () => {
   }, []);
 
   return (
-    <div className="container scroll hero text-white justify-content-center align-items-center p-4">
+    <div className="container hero text-white justify-content-center align-items-center p-4">
       <h3 className="h3 mb-4">BOOK A ROOM</h3>
       <select className="button" onChange={handleChange} value={value}>
         {CITIES.map((city) => (

@@ -54,7 +54,6 @@ input[type="submit"] {
 
 div,
 nav,
-header,
 section,
 form,
 footer {
@@ -65,7 +64,6 @@ footer {
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 
 #root {
