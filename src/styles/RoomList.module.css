@@ -35,6 +35,10 @@
   color: var(--on-primary);
 }
 
+.button:disabled {
+  background-color: var(--gray-2);
+}
+
 .leftBtn {
   position: absolute;
   bottom: calc(50% + 48px);
