@@ -22,3 +22,8 @@
 .toast {
   z-index: 10000;
 }
+
+.label {
+  font-size: 12px;
+  font-weight: 800;
+}
