@@ -2,7 +2,7 @@ import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { RESET } from '../actions';
 import * as API from '../../API';
 import { normailzeReservation, normailzeReservations } from '../schema';
-import { addRoom } from '../rooms';
+import { addRoom, REMOVE_ROOM } from '../rooms';
 
 const LOAD_RESERVATIONS = 'reservations/load';
 const ADD_RESERVATION = 'reservations/add';
@@ -76,6 +76,17 @@ const reducer = (state = initialState, action) => {
       return {
         byId,
         allIds: state.allIds.filter((id) => String(id) !== String(action.id)),
+      };
+    }
+    case REMOVE_ROOM: {
+      const ids = state.allIds.filter((id) => {
+        const reservation = state.byId[id];
+
+        return reservation.room !== action.id;
+      });
+      return {
+        ...state,
+        allIds: ids,
       };
     }
     case RESET:
