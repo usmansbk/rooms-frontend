@@ -23,3 +23,18 @@
 .room-facility {
   width: 300px;
 }
+
+.rooms-container::-webkit-scrollbar {
+  width: 1em;
+  height: 10px;
+}
+
+.rooms-container::-webkit-scrollbar-track {
+  background: #96bf0f98;
+}
+
+.rooms-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  border: 1px solid #96bf0f88;
+}
