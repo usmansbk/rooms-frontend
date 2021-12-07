@@ -9,10 +9,11 @@ const Card = ({ id }) => {
 
   return (
     <Link to={`/rooms/${id}`}>
-      <div>
-        <img alt="" src={`${BASE_URL}${picture}`} style={{ width: 300, height: 300 }} />
-        <h5>{name}</h5>
-        <p>{facilities}</p>
+      <div className="card justify-content-center align-items-center">
+        <img alt="" src={`${BASE_URL}${picture}`} style={{ width: '100%', height: 200 }} />
+        <h5 className="h4 mt-4 fw-600">{name}</h5>
+        <div className="dot-divider my-4" />
+        <p className="caption fw-600 text-gray text-align-center">{facilities}</p>
       </div>
     </Link>
   );
@@ -22,9 +23,11 @@ const Rooms = () => {
   const roomIds = useSelector(selectAllRooms);
 
   return (
-    <div>
-      <h3>Available Rooms</h3>
-      {roomIds.map((id) => <Card id={id} key={id} />)}
+    <div className="container p-4 justify-content-center">
+      <h3 className="h3 mb-4 text-align-center">AVAILABLE ROOMS</h3>
+      <div className="mt-4">
+        {roomIds.map((id) => <Card id={id} key={id} />)}
+      </div>
     </div>
   );
 };
