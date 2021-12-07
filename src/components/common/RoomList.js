@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import clsx from 'clsx';
 import { BASE_URL } from '../../constants';
 import { selectRoomById } from '../../redux/rooms/selectors';
 import classes from '../../styles/RoomList.module.css';
@@ -41,6 +43,12 @@ const Card = ({ id }) => {
 
 const RoomList = ({ data = [] }) => (
   <div className={classes.container}>
+    <button type="button" className={clsx(classes.button, classes.leftBtn)}>
+      <FontAwesomeIcon icon={faChevronLeft} />
+    </button>
+    <button type="button" className={clsx(classes.button, classes.rightBtn)}>
+      <FontAwesomeIcon icon={faChevronRight} />
+    </button>
     {data.map((id) => <Card key={id} id={id} />)}
   </div>
 );

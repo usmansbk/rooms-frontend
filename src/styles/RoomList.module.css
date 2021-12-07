@@ -9,7 +9,6 @@
 
 .container {
   gap: 64px;
-  padding: 0 48px;
   flex-direction: row;
   position: relative;
 }
@@ -27,4 +26,26 @@
   border: dotted 2px var(--gray);
   width: 50%;
   margin: 16px auto;
+}
+
+.button {
+  min-width: 60px;
+  height: 48px;
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+}
+
+.leftBtn {
+  position: absolute;
+  bottom: calc(50% + 48px);
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.rightBtn {
+  right: 0;
+  bottom: calc(50% + 48px);
+  position: absolute;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
 }
