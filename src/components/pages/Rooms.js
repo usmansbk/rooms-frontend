@@ -25,7 +25,7 @@ const Rooms = () => {
   return (
     <div className="container p-4 justify-content-center">
       <h3 className="h3 mb-4 text-align-center">AVAILABLE ROOMS</h3>
-      <div className="mt-4">
+      <div className="mt-4 flex-lg-direction-row gap-6 align-items-center">
         {roomIds.map((id) => <Card id={id} key={id} />)}
       </div>
     </div>

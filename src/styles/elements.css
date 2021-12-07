@@ -52,7 +52,7 @@ tr:nth-child(odd) {
 }
 
 .card {
-  width: 25%;
+  width: 240px;
 }
 
 @media screen and (min-width: 992px) {
