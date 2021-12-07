@@ -38,25 +38,28 @@ const Room = () => {
           </div>
           <div className="my-4 info-table">
             <table>
-              <tr>
-                <td>Price</td>
-                <td>{`$${price} / per night`}</td>
-              </tr>
-              <tr>
-                <td>Size</td>
-                <td>
-                  {size}
-                  &#13217;
-                </td>
-              </tr>
-              <tr>
-                <td>Bed Type</td>
-                <td>{bedType}</td>
-              </tr>
-              <tr>
-                <td>Facilities</td>
-                <td>{facilities}</td>
-              </tr>
+              <tbody>
+
+                <tr>
+                  <td>Price</td>
+                  <td>{`$${price} / per night`}</td>
+                </tr>
+                <tr>
+                  <td>Size</td>
+                  <td>
+                    {size}
+                    &#13217;
+                  </td>
+                </tr>
+                <tr>
+                  <td>Bed Type</td>
+                  <td>{bedType}</td>
+                </tr>
+                <tr>
+                  <td>Facilities</td>
+                  <td>{facilities}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
           <ReserveForm roomId={params.id} />

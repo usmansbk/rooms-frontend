@@ -20,6 +20,6 @@ export const normailzeReservations = (data) => {
 };
 
 export const normailzeReservation = (data) => {
-  const { entities: byId, result: id } = normalize(data, reservations);
-  return { byId, id };
+  const { entities: { reservations: byId, rooms }, result: id } = normalize(data, reservation);
+  return { byId, id, room: rooms[byId[id].room] };
 };
