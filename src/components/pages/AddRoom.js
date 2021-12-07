@@ -29,9 +29,9 @@ const AddRoom = () => {
         <input className="input" type="number" placeholder="Size (㎡)" {...register('size', { required: true })} />
         <input className="input" placeholder="Bed Type" {...register('bed_type', { required: true })} />
         <textarea className="input" placeholder="Facilities" {...register('facilities', { required: true })} />
-        <label htmlFor="picture" className="input">
+        <label htmlFor="picture" className="input caption fw-600">
           <input placeholder="Picture" type="file" accept="image/png, image/jpeg" {...register('picture', { required: true })} />
-          Picture
+          PICTURE
         </label>
         <input className="button" type="submit" value="Submit" />
       </form>
