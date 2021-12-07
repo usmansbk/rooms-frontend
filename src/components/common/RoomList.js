@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import classes from '../../styles/RoomList.module.css';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import clsx from 'clsx';
 import { BASE_URL } from '../../constants';
 import { selectRoomById } from '../../redux/rooms/selectors';
-
+import classes from '../../styles/RoomList.module.css';
 
 const CardFooter = () => (
   <div className="flex-direction-row my-4 justify-content-center gap-4">
@@ -38,3 +40,19 @@ const Card = ({ id }) => {
     </Link>
   );
 };
+
+const RoomList = ({ data = [] }) => (
+  <div className={classes.container}>
+    <button type="button" className={clsx(classes.button, classes.leftBtn)}>
+      <FontAwesomeIcon icon={faChevronLeft} />
+    </button>
+    <button type="button" className={clsx(classes.button, classes.rightBtn)}>
+      <FontAwesomeIcon icon={faChevronRight} />
+    </button>
+    <div className={classes.list}>
+      {data.map((id) => <Card key={id} id={id} />)}
+    </div>
+  </div>
+);
+
+export default RoomList;
