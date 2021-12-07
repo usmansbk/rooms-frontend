@@ -20,7 +20,7 @@ const ReserveForm = ({ roomId }) => {
         <span className="label">CHECK IN</span>
         <input className="input" type="date" placeholder="Check in" {...register('check_in', { required: true })} />
       </label>
-      <input className="input" type="number" placeholder="Nights" {...register('nights', { required: true })} />
+      <input className="input" min="10" type="number" placeholder="Nights" {...register('nights', { required: true })} />
       <input className="button" type="submit" value="Reserve" />
     </form>
   );
