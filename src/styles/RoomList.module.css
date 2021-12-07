@@ -1,0 +1,14 @@
+.image {
+  height: 160px;
+}
+
+.card {
+  width: 240px;
+  text-align: center;
+}
+
+.divider {
+  border: dotted 2px var(--gray);
+  width: 50%;
+  margin: 16px auto;
+}
