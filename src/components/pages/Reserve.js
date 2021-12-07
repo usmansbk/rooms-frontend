@@ -8,7 +8,7 @@ import ReserveForm from '../common/ReserveForm';
 const Card = ({ id }) => {
   const { name, picture, price } = useSelector(selectRoomById(id));
   return (
-    <div className="flex-direction-row background-white text-black">
+    <div className="flex-lg-direction-row background-white text-black">
       <img alt="" src={`${BASE_URL}${picture}`} style={{ width: 300, height: 300 }} />
       <div className="p-4">
         <div className="mb-4">
