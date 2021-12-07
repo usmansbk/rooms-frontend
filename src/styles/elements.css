@@ -2,7 +2,7 @@
   outline: currentColor;
   padding: 16px;
   width: 100%;
-  border-radius: 24px;
+  resize: none;
 }
 
 .button {

@@ -18,6 +18,10 @@
   margin: 16px;
 }
 
+.mb-4 {
+  margin-bottom: 16px;
+}
+
 .gap-2 {
   gap: 8px;
 }
