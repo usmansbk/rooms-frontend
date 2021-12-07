@@ -49,7 +49,9 @@ const RoomList = ({ data = [] }) => (
     <button type="button" className={clsx(classes.button, classes.rightBtn)}>
       <FontAwesomeIcon icon={faChevronRight} />
     </button>
-    {data.map((id) => <Card key={id} id={id} />)}
+    <div className={classes.list}>
+      {data.map((id) => <Card key={id} id={id} />)}
+    </div>
   </div>
 );
 

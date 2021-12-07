@@ -8,9 +8,13 @@
 }
 
 .container {
+  position: relative;
+  align-items: center;
+}
+
+.list {
   gap: 64px;
   flex-direction: row;
-  position: relative;
 }
 
 .icon {
@@ -33,6 +37,7 @@
   height: 48px;
   background-color: var(--primary-color);
   color: var(--on-primary);
+  position: absolute;
 }
 
 .button:disabled {
@@ -40,7 +45,7 @@
 }
 
 .leftBtn {
-  position: absolute;
+  left: 0;
   bottom: calc(50% + 48px);
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -49,7 +54,6 @@
 .rightBtn {
   right: 0;
   bottom: calc(50% + 48px);
-  position: absolute;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
 }
