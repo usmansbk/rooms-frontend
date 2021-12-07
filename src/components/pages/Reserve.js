@@ -37,7 +37,7 @@ const Reserve = () => {
           <option key={city} value={city}>{city}</option>
         ))}
       </select>
-      <div className="mt-4">
+      <div className="mt-4 gap-2">
         {roomIds.map((id) => <Card key={id} id={id} />)}
       </div>
     </div>
