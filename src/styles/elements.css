@@ -46,6 +46,8 @@ tr:nth-child(odd) {
   background-color: var(--gray);
 }
 
-.info-table {
-  width: 300px;
+@media screen and (min-width: 992px) {
+  .info-table {
+    width: 300px;
+  }
 }

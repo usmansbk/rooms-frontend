@@ -25,3 +25,9 @@
 .align-self-end {
   align-self: flex-end;
 }
+
+@media screen and (min-width: 992px) {
+  .flex-lg-direction-row {
+    flex-direction: row;
+  }
+}
