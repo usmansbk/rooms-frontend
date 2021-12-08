@@ -12,9 +12,9 @@ const loadRooms = (payload) => ({
   payload,
 });
 
-export const addRoom = (payload) => ({
+export const addRoom = (room) => ({
   type: ADD_ROOM,
-  payload,
+  room,
 });
 
 export const removeRoom = (id) => ({
