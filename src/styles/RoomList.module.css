@@ -29,6 +29,7 @@
   background-color: var(--primary-color);
   color: var(--on-primary);
   position: absolute;
+  z-index: 1;
 }
 
 .button:disabled {

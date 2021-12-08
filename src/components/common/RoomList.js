@@ -8,7 +8,6 @@ import Slider from 'react-slick';
 import clsx from 'clsx';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useCallback, useRef, useState } from 'react';
 import { BASE_URL } from '../../constants';
 import { selectRoomById } from '../../redux/rooms/selectors';
 import classes from '../../styles/RoomList.module.css';
@@ -43,58 +42,55 @@ const Card = ({ id }) => {
   );
 };
 
-const RoomList = ({ data = [] }) => {
-  const ref = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const next = useCallback(() => ref.current?.slickNext(), []);
-  const prev = useCallback(() => ref.current?.slickPrev(), []);
-  const onChange = useCallback((index) => setActiveIndex(index), []);
-
+const SlickButton = ({
+  icon, btnClassName, className, onClick,
+}) => {
+  const disabled = className.includes('slick-disabled');
   return (
-    <div>
-      <Slider
-        ref={ref}
-        responsive={[
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-            },
-          },
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
-          },
-        ]}
-        infinite={false}
-        dots={false}
-        draggable={false}
-        slidesToShow={3}
-        slidesToScroll={3}
-        afterChange={onChange}
-      >
-        {data.map((id) => <Card key={id} id={id} />)}
-      </Slider>
-      <button disabled={activeIndex === 0} onClick={prev} type="button" className={clsx(classes.button, classes.leftBtn)}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </button>
-      <button disabled={activeIndex === data.length - 1} onClick={next} type="button" className={clsx(classes.button, classes.rightBtn)}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </button>
-    </div>
+    <button onClick={onClick} type="button" disabled={disabled} className={clsx(classes.button, btnClassName)}>
+      <FontAwesomeIcon icon={icon} />
+    </button>
   );
 };
+
+const RoomList = ({ data = [] }) => (
+  <div>
+    <Slider
+      responsive={[
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ]}
+      infinite={false}
+      dots={false}
+      draggable={false}
+      slidesToShow={3}
+      slidesToScroll={3}
+      nextArrow={<SlickButton icon={faChevronRight} btnClassName={classes.rightBtn} />}
+      prevArrow={<SlickButton icon={faChevronLeft} btnClassName={classes.leftBtn} />}
+    >
+      {data.map((id) => <Card key={id} id={id} />)}
+    </Slider>
+  </div>
+);
 
 export default RoomList;
