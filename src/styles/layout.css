@@ -58,6 +58,10 @@
   left: 0;
 }
 
+.header {
+  padding: 16px;
+}
+
 .scroll {
   overflow: auto;
 }
