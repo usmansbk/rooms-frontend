@@ -28,7 +28,9 @@ const DeleteRoom = () => {
       <h3 className="h3 mb-4">DELETE ROOM</h3>
       <div>
         <table>
-          {roomIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+          <tbody>
+            {roomIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+          </tbody>
         </table>
       </div>
     </div>

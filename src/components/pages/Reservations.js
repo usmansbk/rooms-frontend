@@ -36,13 +36,17 @@ const Reservations = () => {
     <div className="container p-4">
       <h3 className="h3 mb-4">MY RESERVATIONS</h3>
       <table>
-        <tr>
-          <th>ROOM</th>
-          <th>CHECK IN DATE</th>
-          <th>CITY</th>
-          <th>{' '}</th>
-        </tr>
-        {reservationIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+        <thead>
+          <tr>
+            <th>ROOM</th>
+            <th>CHECK IN DATE</th>
+            <th>CITY</th>
+            <th>{' '}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {reservationIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+        </tbody>
       </table>
     </div>
   );

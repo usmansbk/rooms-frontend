@@ -13,7 +13,7 @@ const loadReservations = (payload) => ({
   payload,
 });
 
-const addReservation = (payload) => ({
+export const addReservation = (payload) => ({
   type: ADD_RESERVATION,
   payload,
 });
