@@ -30,9 +30,9 @@ const Reserve = () => {
   }, []);
 
   return (
-    <div>
-      <h3>BOOK A ROOM</h3>
-      <select onChange={handleChange} value={value}>
+    <div className="container hero text-white justify-content-center align-items-center p-4">
+      <h3 className="h3 mb-4">BOOK A ROOM</h3>
+      <select className="button" onChange={handleChange} value={value}>
         {CITIES.map((city) => (
           <option key={city} value={city}>{city}</option>
         ))}

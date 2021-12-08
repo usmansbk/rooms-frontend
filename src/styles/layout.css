@@ -66,6 +66,13 @@
   overflow: auto;
 }
 
+.hero {
+  background-color: var(--primary-color);
+  background-image: url('../assets/background.jpg');
+  background-blend-mode: darken;
+  background-size: cover;
+}
+
 @media screen and (min-width: 992px) {
   .header {
     display: none;

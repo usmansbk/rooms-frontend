@@ -9,6 +9,7 @@
 
 :root {
   --primary-color: #97bf0f;
+  --primary-color-opacity: rgb(151, 191, 15, 0.8);
   --secondary-color: #ffb400;
   --on-primary: #fafcfb;
   --text-color: #212121;
