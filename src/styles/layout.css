@@ -58,6 +58,10 @@
   left: 0;
 }
 
+.scroll {
+  overflow: auto;
+}
+
 @media screen and (min-width: 992px) {
   .header {
     display: none;
