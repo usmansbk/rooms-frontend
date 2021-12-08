@@ -8,15 +8,15 @@ import ReserveForm from '../common/ReserveForm';
 const Card = ({ id }) => {
   const { name, picture, price } = useSelector(selectRoomById(id));
   return (
-    <div>
-      <h3>{name}</h3>
+    <div className="flex-direction-row background-white text-black">
       <img alt="" src={`${BASE_URL}${picture}`} style={{ width: 300, height: 300 }} />
-      <p>
-        {price}
-        {' '}
-        / per night
-      </p>
-      <ReserveForm roomId={id} />
+      <div className="p-4">
+        <div className="mb-4">
+          <h3 className="h3">{name}</h3>
+          <p className="fw-600">{`$${price} / per night`}</p>
+        </div>
+        <ReserveForm roomId={id} />
+      </div>
     </div>
   );
 };
@@ -37,7 +37,7 @@ const Reserve = () => {
           <option key={city} value={city}>{city}</option>
         ))}
       </select>
-      <div>
+      <div className="mt-4">
         {roomIds.map((id) => <Card key={id} id={id} />)}
       </div>
     </div>
