@@ -4,8 +4,10 @@ import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import Slider from 'react-slick';
 import clsx from 'clsx';
-import { useCallback, useState } from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { BASE_URL } from '../../constants';
 import { selectRoomById } from '../../redux/rooms/selectors';
 import classes from '../../styles/RoomList.module.css';
@@ -28,46 +30,60 @@ const Card = ({ id }) => {
   const { name, picture, facilities } = useSelector(selectRoomById(id));
 
   return (
-    <Link to={`/rooms/${id}`}>
-      <div className={classes.card}>
-        <img alt="" src={`${BASE_URL}${picture}`} className={classes.image} />
-        <h5 className="h4 mt-4 fw-600">{name}</h5>
-        <div className={classes.divider} />
-        <div className="text-gray">
-          <p className="caption fw-600 text-align-center">{facilities}</p>
-          <CardFooter />
-        </div>
+    <Link className={classes.card} to={`/rooms/${id}`}>
+      <img alt="" src={`${BASE_URL}${picture}`} className={classes.image} />
+      <h5 className="h4 mt-4 fw-600">{name}</h5>
+      <div className={classes.divider} />
+      <div className="text-gray">
+        <p className="caption fw-600 text-align-center">{facilities}</p>
+        <CardFooter />
       </div>
     </Link>
   );
 };
 
-const RoomList = ({ data = [] }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const NUMBER_OF_CARDS = 3;
-
-  const next = useCallback(() => {
-    setActiveIndex(activeIndex + 1);
-  }, [activeIndex]);
-
-  const prev = useCallback(() => {
-    setActiveIndex(activeIndex - 1);
-  }, [activeIndex]);
-
-  return (
-    <div className={classes.container}>
-      <button type="button" disabled={activeIndex === 0} onClick={prev} className={clsx(classes.button, classes.leftBtn)}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </button>
-      <button type="button" disabled={activeIndex === data.length - 1} onClick={next} className={clsx(classes.button, classes.rightBtn)}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </button>
-      <div className={classes.list}>
-        {data.slice(activeIndex, activeIndex + NUMBER_OF_CARDS)
-          .map((id) => <Card key={id} id={id} />)}
-      </div>
-    </div>
-  );
-};
+const RoomList = ({ data = [] }) => (
+  <div>
+    <Slider
+      responsive={[
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ]}
+      infinite={false}
+      dots={false}
+      draggable={false}
+      slidesToShow={3}
+      slidesToScroll={3}
+    >
+      {data.map((id) => <Card key={id} id={id} />)}
+    </Slider>
+    <button type="button" className={clsx(classes.button, classes.leftBtn)}>
+      <FontAwesomeIcon icon={faChevronLeft} />
+    </button>
+    <button type="button" className={clsx(classes.button, classes.rightBtn)}>
+      <FontAwesomeIcon icon={faChevronRight} />
+    </button>
+  </div>
+);
 
 export default RoomList;
