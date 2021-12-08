@@ -26,6 +26,7 @@
 .brand {
   font-family: 'Lobster', cursive;
   color: var(--brand-color);
+  rotate: -10deg;
 }
 
 .loading-bar {
