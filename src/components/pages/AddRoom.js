@@ -18,7 +18,7 @@ const AddRoom = () => {
   });
 
   return (
-    <div className="container justify-content-center align-items-center flex-grow-1">
+    <div className="container justify-content-center align-items-center flex-grow-1 p-4">
       <h3 className="h3 mb-4">ADD ROOM</h3>
       <form onSubmit={onSubmit} className="gap-2">
         <input className="input" placeholder="Name" {...register('name', { required: true })} />

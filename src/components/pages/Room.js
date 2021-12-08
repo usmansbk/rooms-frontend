@@ -26,7 +26,7 @@ const Room = () => {
   } = room;
 
   return (
-    <div className="container scroll">
+    <div className="container">
       <div className="flex-lg-direction-row">
         <div className="flex-grow-1">
           <img alt={name} src={`${BASE_URL}${picture}`} style={{ width: '100%', height: '100%' }} />

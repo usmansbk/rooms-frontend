@@ -50,16 +50,10 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .open-nav {
   left: 0;
-}
-
-.scroll {
-  overflow: auto;
 }
 
 .hero {
