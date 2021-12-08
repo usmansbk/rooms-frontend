@@ -9,6 +9,7 @@
 
 :root {
   --primary-color: #97bf0f;
+  --primary-color-opacity: rgb(151, 191, 15, 0.8);
   --secondary-color: #ffb400;
   --on-primary: #fafcfb;
   --text-color: #212121;
@@ -16,6 +17,7 @@
   --light-gray-2: #c1c1c1;
   --gray: #e2e3e5;
   --gray-2: #efefef;
+  --gray-3: #a3a5a4;
   --brand-color: #474747;
   --black-color: #252525;
   --white-color: #fff;
@@ -24,6 +26,14 @@
 .brand {
   font-family: 'Lobster', cursive;
   color: var(--brand-color);
+  rotate: -10deg;
+}
+
+.loading-bar {
+  z-index: 10000;
+  background-color: var(--primary-color);
+  height: 3px;
+  position: absolute;
 }
 
 ul {
@@ -46,7 +56,6 @@ input[type="submit"] {
 
 div,
 nav,
-header,
 section,
 form,
 footer {
