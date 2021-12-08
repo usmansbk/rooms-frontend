@@ -19,18 +19,21 @@ const AddRoom = () => {
 
   return (
     <div className="container justify-content-center align-items-center flex-grow-1">
-      <h3>Add Room</h3>
-      <form onSubmit={onSubmit}>
-        <input placeholder="Name" {...register('name', { required: true })} />
-        <select {...register('city', { required: true })}>
+      <h3 className="h3 mb-4">ADD ROOM</h3>
+      <form onSubmit={onSubmit} className="gap-2">
+        <input className="input" placeholder="Name" {...register('name', { required: true })} />
+        <select className="input" {...register('city', { required: true })}>
           {CITIES.map((value) => <option key={value} value={value}>{value}</option>)}
         </select>
-        <input type="number" placeholder="Price" {...register('price', { required: true })} />
-        <input type="number" placeholder="Size" {...register('size', { required: true })} />
-        <input placeholder="Bed Type" {...register('bed_type', { required: true })} />
-        <textarea placeholder="Facilities" {...register('facilities', { required: true })} />
-        <input placeholder="Picture" type="file" accept="image/png, image/jpeg" {...register('picture', { required: true })} />
-        <input type="submit" value="Submit" />
+        <input className="input" type="number" placeholder="Price" {...register('price', { required: true })} />
+        <input className="input" type="number" placeholder="Size" {...register('size', { required: true })} />
+        <input className="input" placeholder="Bed Type" {...register('bed_type', { required: true })} />
+        <textarea className="input" placeholder="Facilities" {...register('facilities', { required: true })} />
+        <label htmlFor="picture" className="input">
+          <input placeholder="Picture" type="file" accept="image/png, image/jpeg" {...register('picture', { required: true })} />
+          Picture
+        </label>
+        <input className="button" type="submit" value="Submit" />
       </form>
     </div>
   );
