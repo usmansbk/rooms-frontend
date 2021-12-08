@@ -35,10 +35,29 @@ const Room = () => {
           <h3 className="h3 fw-600">{name}</h3>
           <span className="caption">{city}</span>
         </div>
-        <h5>{price}</h5>
-        <p>{facilities}</p>
-        <p>{size}</p>
-        <p>{bedType}</p>
+        <div className="my-4 info-table">
+          <table>
+            <tr>
+              <td>Price</td>
+              <td>{`$${price} / per night`}</td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td>
+                {size}
+                &#13217;
+              </td>
+            </tr>
+            <tr>
+              <td>Bed Type</td>
+              <td>{bedType}</td>
+            </tr>
+            <tr>
+              <td>Facilities</td>
+              <td>{facilities}</td>
+            </tr>
+          </table>
+        </div>
         <ReserveForm roomId={params.id} />
       </div>
     </div>

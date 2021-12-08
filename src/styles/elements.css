@@ -27,3 +27,24 @@
   font-size: 12px;
   font-weight: 800;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--gray);
+}
+
+.info-table {
+  width: 300px;
+}
