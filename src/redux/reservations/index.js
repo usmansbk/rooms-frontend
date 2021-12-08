@@ -2,7 +2,8 @@ import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { RESET } from '../actions';
 import * as API from '../../API';
 import { normailzeReservation, normailzeReservations } from '../schema';
-import { addRoom } from '../rooms';
+import { addRoom, REMOVE_ROOM } from '../rooms';
+import { showToast } from '../toast';
 
 const LOAD_RESERVATIONS = 'reservations/load';
 const ADD_RESERVATION = 'reservations/add';
@@ -13,7 +14,7 @@ const loadReservations = (payload) => ({
   payload,
 });
 
-const addReservation = (payload) => ({
+export const addReservation = (payload) => ({
   type: ADD_RESERVATION,
   payload,
 });
@@ -30,6 +31,7 @@ export const createReservation = (payload) => async (dispatch) => {
   const { byId, id, room } = normailzeReservation(reservation);
   dispatch(addReservation({ byId, id }));
   dispatch(addRoom(room));
+  dispatch(showToast('Reserved!'));
 
   dispatch(hideLoading());
 };
@@ -76,6 +78,17 @@ const reducer = (state = initialState, action) => {
       return {
         byId,
         allIds: state.allIds.filter((id) => String(id) !== String(action.id)),
+      };
+    }
+    case REMOVE_ROOM: {
+      const ids = state.allIds.filter((id) => {
+        const reservation = state.byId[id];
+
+        return reservation.room !== action.id;
+      });
+      return {
+        ...state,
+        allIds: ids,
       };
     }
     case RESET:
