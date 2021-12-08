@@ -5,16 +5,16 @@ import { normailzeRooms } from '../schema';
 
 const LOAD_ROOMS = 'rooms/items';
 const ADD_ROOM = 'rooms/add';
-const REMOVE_ROOM = 'rooms/remove';
+export const REMOVE_ROOM = 'rooms/remove';
 
 const loadRooms = (payload) => ({
   type: LOAD_ROOMS,
   payload,
 });
 
-export const addRoom = (payload) => ({
+export const addRoom = (room) => ({
   type: ADD_ROOM,
-  payload,
+  room,
 });
 
 export const removeRoom = (id) => ({
