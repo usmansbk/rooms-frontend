@@ -25,8 +25,8 @@ const AddRoom = () => {
         <select className="input" {...register('city', { required: true })}>
           {CITIES.map((value) => <option key={value} value={value}>{value}</option>)}
         </select>
-        <input className="input" type="number" placeholder="Price per Night" {...register('price', { required: true })} />
-        <input className="input" type="number" placeholder="Size in meter square" {...register('size', { required: true })} />
+        <input className="input" type="number" placeholder="Price per night ($)" {...register('price', { required: true })} />
+        <input className="input" type="number" placeholder="Size (㎡)" {...register('size', { required: true })} />
         <input className="input" placeholder="Bed Type" {...register('bed_type', { required: true })} />
         <textarea className="input" placeholder="Facilities" {...register('facilities', { required: true })} />
         <label htmlFor="picture" className="input">
