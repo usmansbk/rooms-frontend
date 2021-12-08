@@ -11,3 +11,11 @@
   font-size: 12px;
   font-weight: 500;
 }
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
