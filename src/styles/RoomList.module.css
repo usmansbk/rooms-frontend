@@ -4,13 +4,14 @@
 
 .card {
   width: 240px;
+  text-align: center;
 }
 
 .container {
-  margin: auto;
   gap: 64px;
+  padding: 0 48px;
+  flex-direction: row;
   position: relative;
-  overflow-x: scroll;
 }
 
 .list {
