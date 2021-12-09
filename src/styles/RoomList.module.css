@@ -8,9 +8,8 @@
 }
 
 .container {
-  gap: 64px;
-  flex-direction: row;
   position: relative;
+  align-items: center;
 }
 
 .list {
@@ -46,7 +45,7 @@
 }
 
 .leftBtn {
-  position: absolute;
+  left: 0;
   bottom: calc(50% + 48px);
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -55,7 +54,6 @@
 .rightBtn {
   right: 0;
   bottom: calc(50% + 48px);
-  position: absolute;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
 }
