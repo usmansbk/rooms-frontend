@@ -3,18 +3,11 @@
 }
 
 .card {
-  width: 240px;
   text-align: center;
 }
 
-.container {
-  position: relative;
-  align-items: center;
-}
-
 .list {
-  gap: 64px;
-  flex-direction: row;
+  margin: 0 24px;
 }
 
 .icon {
@@ -46,14 +39,14 @@
 
 .leftBtn {
   left: 0;
-  bottom: calc(50% + 48px);
+  bottom: 50%;
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
 }
 
 .rightBtn {
   right: 0;
-  bottom: calc(50% + 48px);
+  bottom: 50%;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
 }
