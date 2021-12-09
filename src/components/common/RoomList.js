@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
+import { useCallback, useState } from 'react';
 import { BASE_URL } from '../../constants';
 import { selectRoomById } from '../../redux/rooms/selectors';
 import classes from '../../styles/RoomList.module.css';
@@ -41,18 +42,32 @@ const Card = ({ id }) => {
   );
 };
 
-const RoomList = ({ data = [] }) => (
-  <div className={classes.container}>
-    <button type="button" className={clsx(classes.button, classes.leftBtn)}>
-      <FontAwesomeIcon icon={faChevronLeft} />
-    </button>
-    <button type="button" className={clsx(classes.button, classes.rightBtn)}>
-      <FontAwesomeIcon icon={faChevronRight} />
-    </button>
-    <div className={classes.list}>
-      {data.map((id) => <Card key={id} id={id} />)}
+const RoomList = ({ data = [] }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const NUMBER_OF_CARDS = 3;
+
+  const next = useCallback(() => {
+    setActiveIndex(activeIndex + 1);
+  }, [activeIndex]);
+
+  const prev = useCallback(() => {
+    setActiveIndex(activeIndex - 1);
+  }, [activeIndex]);
+
+  return (
+    <div className={classes.container}>
+      <button type="button" disabled={activeIndex === 0} onClick={prev} className={clsx(classes.button, classes.leftBtn)}>
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </button>
+      <button type="button" disabled={activeIndex === data.length - 1} onClick={next} className={clsx(classes.button, classes.rightBtn)}>
+        <FontAwesomeIcon icon={faChevronRight} />
+      </button>
+      <div className={classes.list}>
+        {data.slice(activeIndex, activeIndex + NUMBER_OF_CARDS)
+          .map((id) => <Card key={id} id={id} />)}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default RoomList;
