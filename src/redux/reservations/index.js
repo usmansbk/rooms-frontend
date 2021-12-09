@@ -3,6 +3,7 @@ import { RESET } from '../actions';
 import * as API from '../../API';
 import { normailzeReservation, normailzeReservations } from '../schema';
 import { addRoom, REMOVE_ROOM } from '../rooms';
+import { showToast } from '../toast';
 
 const LOAD_RESERVATIONS = 'reservations/load';
 const ADD_RESERVATION = 'reservations/add';
@@ -30,6 +31,7 @@ export const createReservation = (payload) => async (dispatch) => {
   const { byId, id, room } = normailzeReservation(reservation);
   dispatch(addReservation({ byId, id }));
   dispatch(addRoom(room));
+  dispatch(showToast('Reserved!'));
 
   dispatch(hideLoading());
 };
