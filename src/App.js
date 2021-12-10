@@ -1,5 +1,5 @@
 import {
-  BrowserRouter, Route, Routes, Outlet,
+  HashRouter as Router, Route, Routes, Outlet,
 } from 'react-router-dom';
 import Home from './components/Home';
 import SignIn from './components/pages/SignIn';
@@ -15,7 +15,7 @@ import Toast from './components/common/Toast';
 import './styles';
 
 const App = () => (
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <Router basename={process.env.PUBLIC_URL}>
     <Routes>
       <Route
         path="/"
@@ -36,11 +36,25 @@ const App = () => (
           <Route path="new" element={<Reserve />} />
         </Route>
       </Route>
-      <Route path="/signin" element={<RedirectAuth><SignIn /></RedirectAuth>} />
-      <Route path="/signup" element={<RedirectAuth><SignUp /></RedirectAuth>} />
+      <Route
+        path="/signin"
+        element={(
+          <RedirectAuth>
+            <SignIn />
+          </RedirectAuth>
+        )}
+      />
+      <Route
+        path="/signup"
+        element={(
+          <RedirectAuth>
+            <SignUp />
+          </RedirectAuth>
+        )}
+      />
     </Routes>
     <Toast />
-  </BrowserRouter>
+  </Router>
 );
 
 export default App;
