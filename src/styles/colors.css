@@ -6,6 +6,10 @@
   background-color: var(--black-color);
 }
 
+.background-white {
+  background-color: white;
+}
+
 .background-transparent {
   background: transparent;
 }
@@ -16,4 +20,8 @@
 
 .text-white {
   color: var(--white-color);
+}
+
+.text-gray {
+  color: var(--gray-3);
 }

@@ -15,10 +15,13 @@ const ReserveForm = ({ roomId }) => {
   const onSubmit = handleSubmit((data) => dispatch(createReservation(data)));
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="date" placeholder="Check in" {...register('check_in', { required: true })} />
-      <input type="number" placeholder="Nights" {...register('nights', { required: true })} />
-      <input type="submit" value="Reserve" />
+    <form onSubmit={onSubmit} className="gap-2">
+      <label htmlFor="check_in">
+        <span className="label">CHECK IN</span>
+        <input className="input" type="date" placeholder="Check in" {...register('check_in', { required: true })} />
+      </label>
+      <input className="input" min="1" type="number" placeholder="Nights" {...register('nights', { required: true })} />
+      <input className="button" type="submit" value="Reserve" />
     </form>
   );
 };

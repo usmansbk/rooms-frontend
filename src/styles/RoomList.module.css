@@ -1,20 +1,11 @@
 .image {
-  height: 160px;
+  height: 200px;
+  width: 100%;
 }
 
 .card {
-  width: 240px;
   text-align: center;
-}
-
-.container {
-  position: relative;
-  align-items: center;
-}
-
-.list {
-  gap: 64px;
-  flex-direction: row;
+  margin: 0 24px;
 }
 
 .icon {
@@ -38,6 +29,7 @@
   background-color: var(--primary-color);
   color: var(--on-primary);
   position: absolute;
+  z-index: 1;
 }
 
 .button:disabled {
@@ -46,14 +38,14 @@
 
 .leftBtn {
   left: 0;
-  bottom: calc(50% + 48px);
+  bottom: 50%;
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
 }
 
 .rightBtn {
   right: 0;
-  bottom: calc(50% + 48px);
+  bottom: 50%;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
 }

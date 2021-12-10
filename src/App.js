@@ -15,7 +15,7 @@ import Toast from './components/common/Toast';
 import './styles';
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes>
       <Route
         path="/"

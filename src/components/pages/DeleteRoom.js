@@ -5,13 +5,16 @@ import { deleteRoom } from '../../redux/rooms';
 import { selectAllRooms, selectRoomById } from '../../redux/rooms/selectors';
 
 const Item = ({ onDelete, id }) => {
-  const { name } = useSelector(selectRoomById(id));
+  const { name, city } = useSelector(selectRoomById(id));
 
   return (
-    <div>
-      <h5>{name}</h5>
-      <button type="button" onClick={() => onDelete(id)}>Delete</button>
-    </div>
+    <tr>
+      <td>{name}</td>
+      <td>{city}</td>
+      <td>
+        <button className="link" type="button" onClick={() => onDelete(id)}>Delete</button>
+      </td>
+    </tr>
   );
 };
 
@@ -22,10 +25,21 @@ const DeleteRoom = () => {
   const handleDelete = useCallback((id) => dispatch(deleteRoom(id)), []);
 
   return (
-    <div>
-      <h3>Delete Room</h3>
+    <div className="container p-4">
+      <h3 className="h3 mb-4">DELETE ROOM</h3>
       <div>
-        {roomIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+        <table>
+          <thead>
+            <tr>
+              <th>ROOM</th>
+              <th>CITY</th>
+              <th>{' '}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {roomIds.map((id) => <Item key={id} id={id} onDelete={handleDelete} />)}
+          </tbody>
+        </table>
       </div>
     </div>
   );

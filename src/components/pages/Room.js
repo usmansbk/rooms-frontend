@@ -26,17 +26,44 @@ const Room = () => {
   } = room;
 
   return (
-    <div>
-      <img alt="" src={`${BASE_URL}${picture}`} style={{ width: 300, height: 300 }} />
-      <div>
-        <h3>{name}</h3>
-        <p>{city}</p>
-        <h5>{price}</h5>
-        <p>{facilities}</p>
-        <p>{size}</p>
-        <p>{bedType}</p>
+    <div className="container">
+      <div className="flex-lg-direction-row">
+        <div className="flex-grow-1">
+          <img alt={name} src={`${BASE_URL}${picture}`} style={{ width: '100%', height: '100%' }} />
+        </div>
+        <div className="p-4">
+          <div className="text-align-right">
+            <h3 className="h3 fw-600">{name}</h3>
+            <span className="caption">{city}</span>
+          </div>
+          <div className="my-4 info-table">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Price</td>
+                  <td>{`$${price} / per night`}</td>
+                </tr>
+                <tr>
+                  <td>Size</td>
+                  <td>
+                    {size}
+                    &#13217;
+                  </td>
+                </tr>
+                <tr>
+                  <td>Bed Type</td>
+                  <td>{bedType}</td>
+                </tr>
+                <tr>
+                  <td>Facilities</td>
+                  <td>{facilities}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <ReserveForm roomId={params.id} />
+        </div>
       </div>
-      <ReserveForm roomId={params.id} />
     </div>
   );
 };

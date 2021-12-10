@@ -14,7 +14,7 @@
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: var(--light-gray-1);
-  z-index: 1;
+  z-index: 10;
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -56,6 +56,13 @@
 
 .open-nav {
   left: 0;
+}
+
+.hero {
+  background-color: var(--primary-color);
+  background-image: url('../assets/background.jpg');
+  background-blend-mode: darken;
+  background-size: cover;
 }
 
 @media screen and (min-width: 992px) {
