@@ -6,15 +6,16 @@
 
 ![screenshot](./app_screenshot.png)
 
+## Backend
+
+[API Documentation](https://polar-island-18380.herokuapp.com/)
+[GitHub Repo](https://github.com/usmansbk/rooms-backend)
+
 ## Built With
 
 - React
 - Redux
 - React Router
-
-## API
-
-[API Documentation](https://polar-island-18380.herokuapp.com/)
 
 ## Getting Started
 
