@@ -1,0 +1,27 @@
+.background-primary {
+  background-color: var(--primary-color);
+}
+
+.background-black {
+  background-color: var(--black-color);
+}
+
+.background-white {
+  background-color: white;
+}
+
+.background-transparent {
+  background: transparent;
+}
+
+.text-black {
+  color: var(--text-color);
+}
+
+.text-white {
+  color: var(--white-color);
+}
+
+.text-gray {
+  color: var(--gray-3);
+}
