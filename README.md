@@ -6,6 +6,16 @@
 
 ![screenshot](./app_screenshot.png)
 
+## Project
+
+- [Kanban board](https://github.com/usmansbk/rooms-backend/projects/1)
+
+- [GitHub](https://github.com/usmansbk/rooms-frontend/tree/main)
+
+- Final number of team members: 4
+
+![Screenshot 2021-11-29 at 17-38-52 Final Capstone Project · usmansbk rooms-backend](https://user-images.githubusercontent.com/10219539/143907673-0d2f2af8-08e0-4952-8c50-72d43f99639f.png)
+
 ## Backend
 
 [API Documentation](https://polar-island-18380.herokuapp.com/)
