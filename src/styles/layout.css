@@ -69,6 +69,11 @@
   display: none;
 }
 
+.page-back-btn {
+  position: absolute;
+  bottom: 52px;
+}
+
 @media screen and (min-width: 992px) {
   .header {
     display: none;

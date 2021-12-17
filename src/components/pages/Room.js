@@ -33,9 +33,6 @@ const Room = () => {
       <div className="flex-lg-direction-row">
         <div className="flex-grow-1">
           <img alt={name} src={`${BASE_URL}${picture}`} style={{ width: '100%', height: '100%' }} />
-          <div className="mt-4 sm-hide">
-            <Button icon={faChevronLeft} left onClick={() => navigate(-1)} />
-          </div>
         </div>
         <div className="p-4">
           <div className="text-align-right">
@@ -69,6 +66,9 @@ const Room = () => {
           </div>
           <ReserveForm roomId={params.id} />
         </div>
+      </div>
+      <div className="sm-hide page-back-btn">
+        <Button icon={faChevronLeft} left onClick={() => navigate(-1)} />
       </div>
     </div>
   );
