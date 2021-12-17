@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { BASE_URL } from '../../constants';
 import { fetchRoom } from '../../redux/rooms';
 import { selectRoomById } from '../../redux/rooms/selectors';
+import Button from '../common/Button';
 import ReserveForm from '../common/ReserveForm';
 
 const Room = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const room = useSelector(selectRoomById(params.id));
 
@@ -30,6 +33,9 @@ const Room = () => {
       <div className="flex-lg-direction-row">
         <div className="flex-grow-1">
           <img alt={name} src={`${BASE_URL}${picture}`} style={{ width: '100%', height: '100%' }} />
+          <div className="mt-4 sm-hide">
+            <Button icon={faChevronLeft} left onClick={() => navigate(-1)} />
+          </div>
         </div>
         <div className="p-4">
           <div className="text-align-right">
