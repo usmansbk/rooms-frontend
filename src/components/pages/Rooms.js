@@ -7,7 +7,9 @@ const Rooms = () => {
 
   return (
     <div className="container pt-4 justify-content-center">
-      <h3 className="h3 mb-10 text-align-center">AVAILABLE ROOMS</h3>
+      <h3 className="h3 mb-10 text-align-center">
+        {roomIds.length ? 'AVAILABLE ROOMS' : 'NO AVAILABLE ROOMS'}
+      </h3>
       <RoomList data={roomIds} />
     </div>
   );

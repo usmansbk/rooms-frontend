@@ -65,9 +65,17 @@
   background-size: cover;
 }
 
+.sm-hide {
+  display: none;
+}
+
 @media screen and (min-width: 992px) {
   .header {
     display: none;
+  }
+
+  .sm-hide {
+    display: flex;
   }
 
   .nav {
