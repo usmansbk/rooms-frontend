@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Slider from 'react-slick';
-import clsx from 'clsx';
+import Button from './Button';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { BASE_URL } from '../../constants';
@@ -43,13 +44,17 @@ const Card = ({ id }) => {
 };
 
 const SlickButton = ({
-  icon, btnClassName, className, onClick,
+  icon, btnClassName, className, onClick, left,
 }) => {
   const disabled = className.includes('slick-disabled');
   return (
-    <button onClick={onClick} type="button" disabled={disabled} className={clsx(classes.button, btnClassName)}>
-      <FontAwesomeIcon icon={icon} />
-    </button>
+    <Button
+      left={left}
+      icon={icon}
+      onClick={onClick}
+      disabled={disabled}
+      className={clsx(classes.button, btnClassName)}
+    />
   );
 };
 
@@ -86,7 +91,7 @@ const RoomList = ({ data = [] }) => (
       slidesToShow={3}
       slidesToScroll={3}
       nextArrow={<SlickButton icon={faChevronRight} btnClassName={classes.rightBtn} />}
-      prevArrow={<SlickButton icon={faChevronLeft} btnClassName={classes.leftBtn} />}
+      prevArrow={<SlickButton icon={faChevronLeft} btnClassName={classes.leftBtn} left />}
     >
       {data.map((id) => <Card key={id} id={id} />)}
     </Slider>

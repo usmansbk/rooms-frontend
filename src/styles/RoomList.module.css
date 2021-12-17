@@ -24,28 +24,15 @@
 }
 
 .button {
-  min-width: 60px;
-  height: 48px;
-  background-color: var(--primary-color);
-  color: var(--on-primary);
-  position: absolute;
   z-index: 1;
-}
-
-.button:disabled {
-  background-color: var(--gray-2);
+  bottom: 50%;
+  position: absolute;
 }
 
 .leftBtn {
   left: 0;
-  bottom: 50%;
-  border-top-right-radius: 24px;
-  border-bottom-right-radius: 24px;
 }
 
 .rightBtn {
   right: 0;
-  bottom: 50%;
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
 }
